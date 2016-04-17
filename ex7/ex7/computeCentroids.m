@@ -27,6 +27,10 @@ centroids = zeros(K, n);
 %
 
 
+for i=1:K
+	idxIndicator = idx == i;
+	centroids(i,:) = X' * idxIndicator / sum(idxIndicator);
+end
 
 
 
