@@ -14,6 +14,9 @@ function [mu sigma2] = estimateGaussian(X)
 mu = zeros(n, 1);
 sigma2 = zeros(n, 1);
 
+mu = mean(X);
+sigma2 = var(X, 1);
+
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the mean of the data and the variances
 %               In particular, mu(i) should contain the mean of
