@@ -13,4 +13,4 @@ jobs:
     name: SVN commit
     steps:
       - name: Run script
-        run:  bash bin/commit-svn > /dev/null
+        run:  bash bin/commit_svn.sh
