@@ -22,3 +22,7 @@ jobs:
 
     - name: Install WP Tests
       run: bash bin/install-wp-tests.sh
+      env:
+        SVNURL: ${{ secrets.SVNURL }}
+        SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+        SVN_USER: ${{ secrets.SVN_USER }}
