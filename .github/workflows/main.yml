@@ -16,8 +16,8 @@ jobs:
     - name: Checkout from GIT
       uses: actions/checkout@v2
 
-    - name: Check Environment vảiable
-      run: echo $SVNURL
+    - name: Check Environment variable
+      run: echo ${{ secrets.SVNURL }}
 
     - name: Install WP Tests
       run: bash bin/install-wp-tests.sh
