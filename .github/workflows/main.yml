@@ -12,5 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     name: SVN commit
     steps:
+      - name: Run script install WP test
+        run:  bash bin/install-wp-tests.sh wordpress_test developer '123456' 172.17.0.1 latest
       - name: Run script
         run:  bash bin/commit_svn.sh
