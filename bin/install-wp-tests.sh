@@ -7,7 +7,7 @@ TRUNK_PATH=trunk
 PREFIX=/tmp
 PPWDt=`pwd`
 TAG_PREFIX="v"
-NEW_TAG=linhTag
+NEW_TAG=2.7.7
 
 if [ -z $SVNURL ]; then
 	>&2 echo "Env variable SVNURL is missing"
