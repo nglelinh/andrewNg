@@ -1,27 +1,23 @@
-name: Unittest
+name: Release
 
 # Controls when the action will run.
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    # Pattern matched against refs/tags
+    tags:
+    - '*'           # Push events to every tag
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   run:
     runs-on: ubuntu-latest
-    name: Check SVN
+    name: Deployment to WP SVN (tag only)
     steps:
     - name: Checkout from GIT
       uses: actions/checkout@v2
 
-    - name: Check Environment variable
-      run: echo $SVNURL
-      env:
-        SVNURL: ${{ secrets.SVNURL }}
-
-    - name: Install WP Tests
-      run: bash bin/install-wp-tests.sh
+    - name: Run svn commit script
+      run: sh bin/commit-svn
       env:
         SVNURL: ${{ secrets.SVNURL }}
         SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}

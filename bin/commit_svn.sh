@@ -7,7 +7,7 @@ TRUNK_PATH=trunk
 PREFIX=/tmp
 PPWDt=`pwd`
 TAG_PREFIX="v"
-NEW_TAG=linhTag
+NEW_TAG=2.7.7
 
 if [ -z $SVNURL ]; then
 	>&2 echo "Env variable SVNURL is missing"
@@ -46,7 +46,7 @@ fi
 TEMPDIR_CHECKOUT=`mktemp -d`
 >&2 echo "TEMPDIR_CHECKOUT is $TEMPDIR_CHECKOUT"
 
-svn co "${SVNURL}/${TRUNK_PATH}" "$TEMPDIR_CHECKOUT" || exit 4;
+svn co --username "${SVN_USER}" --password "${SVN_PASSWORD}" "${SVNURL}/${TRUNK_PATH}" "$TEMPDIR_CHECKOUT" || exit 4;
 
 cd "$TEMPDIR_CHECKOUT";
 
