@@ -16,6 +16,9 @@ jobs:
     - name: Checkout from GIT
       uses: actions/checkout@v2
 
+    - name: Set env
+        run: echo "TRAVIS_TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
     - name: Run svn commit script
       run: |
         echo $TRAVIS_TAG
@@ -24,4 +27,4 @@ jobs:
         SVNURL: ${{ secrets.SVNURL }}
         SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
         SVN_USER: ${{ secrets.SVN_USER }}
-        TRAVIS_TAG: ${GITHUB_REF#refs/*/}
+        TRAVIS_TAG: ${{ env.TRAVIS_TAG }}
