@@ -27,3 +27,14 @@ jobs:
         SVNURL: ${{ secrets.SVNURL }}
         SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
         SVN_USER: ${{ secrets.SVN_USER }}
+  deploy:
+    runs-on: ubuntu-latest
+      name: Deploy the code
+      steps:
+      - name: Checkout from GIT
+        uses: actions/checkout@v2
+
+      - name: Check Environment variable
+        run: echo $SVNURL
+        env:
+          SVNURL: ${{ secrets.SVNURL }}
