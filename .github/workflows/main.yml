@@ -28,6 +28,7 @@ jobs:
         SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
         SVN_USER: ${{ secrets.SVN_USER }}
   deploy:
+    needs: run
     runs-on: ubuntu-latest
     name: Deploy the code
     steps:
